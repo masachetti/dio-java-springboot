@@ -39,6 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void update(Long id, Customer customer) {
         Optional<Customer> customerOptional = customerRepository.findById(id);
         if (customerOptional.isPresent()){
+            customer.setId(id);
             saveCustomerWithCompleteAddress(customer);
         }
     }
